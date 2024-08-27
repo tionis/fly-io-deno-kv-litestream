@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/busybox/sh
 if ! test -d /data; then
 	mkdir /data
 fi
