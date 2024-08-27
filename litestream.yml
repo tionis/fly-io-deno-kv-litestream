@@ -1,0 +1,13 @@
+dbs:
+  - path: /data/denokv.sqlite3
+    replicas:
+      - type: s3
+        path: db
+        endpoint: ${S3_ENDPOINT}
+        access-key-id: ${S3_ACCESS_KEY_ID}
+        secret-access-key: ${S3_SECRET_ACCESS_KEY}
+        age:
+          identities:
+            - ${AGE_PRIVATE_KEY}
+          recipient:
+            - ${AGE_PUBLIC_KEY}
