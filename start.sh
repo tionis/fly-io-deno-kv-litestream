@@ -1,4 +1,6 @@
-#!/busybox/sh
+#!/bin/sh
+echo "$SSH_PRIV_KEY" | base64 -d >~/.ssh/id_ed25519
+echo "$SSH_PUB_KEY" | base64 -d >~/.ssh/id_ed25519.pub
 if ! test -d /data; then
 	mkdir /data
 fi

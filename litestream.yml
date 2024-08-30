@@ -1,14 +1,24 @@
 dbs:
   - path: /data/denokv.sqlite3
     replicas:
-      - type: s3
-        path: db
-        endpoint: ${S3_ENDPOINT}
-        bucket: ${S3_BUCKET}
-        access-key-id: ${S3_ACCESS_KEY_ID}
-        secret-access-key: ${S3_SECRET_ACCESS_KEY}
+      - type: sftp
+        host: zh2587s2.rsync.net:22
+        user: zh2587s2
+        path: litestream/denokv
+        key-path: ${HOME}/.ssh/id_ed25519
         age:
           identities:
             - ${AGE_PRIVATE_KEY}
           recipient:
             - ${AGE_PUBLIC_KEY}
+      # - type: s3
+      #   path: db
+      #   endpoint: ${S3_ENDPOINT}
+      #   bucket: ${S3_BUCKET}
+      #   access-key-id: ${S3_ACCESS_KEY_ID}
+      #   secret-access-key: ${S3_SECRET_ACCESS_KEY}
+      #   age:
+      #     identities:
+      #       - ${AGE_PRIVATE_KEY}
+      #     recipient:
+      #       - ${AGE_PUBLIC_KEY}
