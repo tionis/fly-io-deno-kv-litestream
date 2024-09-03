@@ -9,7 +9,7 @@ dbs:
         age:
           identities:
             - ${AGE_PRIVATE_KEY}
-          recipient:
+          recipients:
             - ${AGE_PUBLIC_KEY}
       # - type: s3
       #   path: db
