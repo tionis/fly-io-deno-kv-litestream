@@ -5,12 +5,17 @@ dbs:
         host: zh2587s2.rsync.net:22
         user: zh2587s2
         path: litestream/denokv
+        validation-interval: 6h
+        #retention: 168h # One Week
+        #retention: 744h # One month
+        retention: 8760h # One year
         key-path: ${HOME}/.ssh/id_ed25519
         age:
           identities:
             - ${AGE_PRIVATE_KEY}
           recipients:
             - ${AGE_PUBLIC_KEY}
+            - age1kawmtz8rvzl5c788kl76xykxt9r7292fv6hch7x6jjj52rea2aqqvf0pkl # litestream master key
       # - type: s3
       #   path: db
       #   endpoint: ${S3_ENDPOINT}
